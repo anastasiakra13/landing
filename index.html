@@ -4,20 +4,38 @@
 	<meta charset="UTF-8">
 	<title>Landing</title>
 	<link rel="stylesheet" href="style.css">
+	<script src="./js/rainyday.min.js"></script>
+	<script>
+		function run() {
+			var image = document.getElementById('background');
+
+			image.onload = function () {
+				var engine = new RainyDay({
+					image: this,
+					sound: 'audio/rain.mp3'
+				});
+				engine.rain([
+					[3, 2, 2]
+				], 100);
+			};
+			image.crossOrigin = 'anonymous';
+			image.src = 'https://img5.goodfon.ru/wallpaper/nbig/e/b4/park-osen-listva-park-autumn-fall.jpg';
+		} 
+	</script>
 </head>
-<body>
+<body onload="run();">
 	<main>
-		<div class="backstage">
-			<img src="img/background.jpg">
+		<div id="backstage" class="backstage">
+			<img id="background" src="">
 		</div>
-		<section class="content">
-			<div class="head">
-				<p class="subtitle">Photo and Video  Challenge</p>
-				<h1 class="title">Autumn Mood</h1>
-				<p class="description">Submit your photos of fall weather for a chance to win.</p>
-				<a href="#" class="button-more">Learn More</a>
-			</div>
-		</section>
 	</main>
+	<section class="content">
+		<div class="head">
+			<p class="subtitle">Photo and Video  Challenge</p>
+			<h1 class="title">Autumn Mood</h1>
+			<p class="description">Submit your photos of fall weather for a chance to win.</p>
+			<a href="#" class="button-more">Learn More</a>
+		</div>
+	</section>	
 </body>
 </html>
